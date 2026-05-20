@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaTech — Next-Gen Business Solutions</title>
+  <meta name="description" content="NovaTech delivers cutting-edge business solutions with AI-powered analytics, cloud infrastructure, and enterprise automation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *,
+    *::before,
+    *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a26;
+      --bg-card-hover: #222233;
+      --text-primary: #f0f0f5;
+      --text-secondary: #a0a0b8;
+      --text-muted: #6b6b80;
+      --accent: #7c3aed;
+      --accent-hover: #8b5cf6;
+      --accent-subtle: rgba(124, 58, 237, 0.1);
+      --accent-glow: rgba(124, 58, 237, 0.3);
+      --gradient-1: linear-gradient(135deg, #7c3aed, #4f46e5);
+      --gradient-2: linear-gradient(135deg, #7c3aed, #ec4899);
+      --gradient-text: linear-gradient(135deg, #c4b5fd, #7c3aed);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-lg: 24px;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 60px rgba(124, 58, 237, 0.15);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(79, 70, 229, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+    }
+
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gradient-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-1);
+      transition: width var(--transition);
+      border-radius: 1px;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: var(--gradient-1);
+      color: white !important;
+      font-weight: 600;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .nav-cta::after { display: none !important; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-hover);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--text-muted);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #c4b5fd;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge i { font-size: 0.75rem; }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .highlight {
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .hero-stat p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 4px 0 0;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #c4b5fd;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ===== TESTIMONIALS CAROUSEL (CSS-only) ===== */
+    .testimonials {
+      background: var(--bg-secondary);
+    }
+
+    .carousel {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      padding: 0 16px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .testimonial-stars {
+      color: #f59e0b;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      letter-spacing: 4px;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gradient-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .testimonial-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .testimonial-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Carousel controls */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .carousel-label {
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .carousel-label:hover { background: var(--text-secondary); }
+
+    #slide-1:checked ~ .carousel .carousel-track { transform: translateX(0); }
+    #slide-2:checked ~ .carousel .carousel-track { transform: translateX(-100%); }
+    #slide-3:checked ~ .carousel .carousel-track { transform: translateX(-200%); }
+
+    #slide-1:checked ~ .carousel-controls label[for="slide-1"],
+    #slide-2:checked ~ .carousel-controls label[for="slide-2"],
+    #slide-3:checked ~ .carousel-controls label[for="slide-3"] {
+      background: var(--accent);
+      border-color: var(--accent-glow);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .carousel-input { display: none; }
+
+    /* ===== PRICING ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      text-align: center;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(79, 70, 229, 0.06));
+      border-color: rgba(124, 58, 237, 0.3);
+      transform: scale(1.04);
+    }
+
+    .pricing-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+
+    .pricing-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: var(--gradient-1);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-duration {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 28px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features li i {
+      color: var(--accent);
+      font-size: 0.85rem;
+      width: 18px;
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--bg-secondary);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-info > p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail i {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c4b5fd;
+      flex-shrink: 0;
+    }
+
+    .contact-detail h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .contact-detail p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-subtle);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 60px 24px 32px;
+      background: var(--bg-secondary);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand .logo { margin-bottom: 16px; }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color var(--transition);
+    }
+
+    .footer-col ul a:hover { color: var(--text-primary); }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .footer-socials a:hover {
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.1s; }
+    .fade-in-delay-2 { animation-delay: 0.2s; }
+    .fade-in-delay-3 { animation-delay: 0.3s; }
+    .fade-in-delay-4 { animation-delay: 0.4s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float { animation: float 4s ease-in-out infinite; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-stats { gap: 28px; }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+      .pricing-card.featured:hover { transform: translateY(-4px); }
+
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 16px; }
+      .hero { padding: 100px 16px 60px; }
+      .pricing-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-grid"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        NovaTech
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge fade-in">
+        <i class="fas fa-sparkles"></i> Now in Public Beta
+      </div>
+      <h1 class="fade-in fade-in-delay-1">
+        Build the Future with <span class="highlight">Intelligent</span> Solutions
+      </h1>
+      <p class="fade-in fade-in-delay-2">
+        NovaTech empowers your business with AI-driven analytics, enterprise-grade cloud infrastructure, and seamless automation — all in one unified platform.
+      </p>
+      <div class="hero-buttons fade-in fade-in-delay-3">
+        <a href="#contact" class="btn btn-primary">
+          Start Free Trial <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          Learn More <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div class="hero-stats fade-in fade-in-delay-4">
+        <div class="hero-stat">
+          <h3>10K+</h3>
+          <p>Active Users</p>
+        </div>
+        <div class="hero-stat">
+          <h3>99.9%</h3>
+          <p>Uptime SLA</p>
+        </div>
+        <div class="hero-stat">
+          <h3>4.9★</h3>
+          <p>Avg. Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features">
+    <div class="section-header fade-in">
+      <span class="section-label">Features</span>
+      <h2>Everything You Need to Scale</h2>
+      <p>Powerful tools designed to accelerate your business growth and streamline operations.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI-Powered Analytics</h3>
+        <p>Harness machine learning to uncover actionable insights from your data. Real-time dashboards and predictive modeling built in.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+        <h3>Cloud Infrastructure</h3>
+        <p>Deploy globally with auto-scaling, multi-region failover, and enterprise-grade security. 99.9% uptime guaranteed.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon"><i class="fas fa-robot"></i></div>
+        <h3>Smart Automation</h3>
+        <p>Automate repetitive workflows with no-code visual builders. Integrate seamlessly with 200+ tools and services.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>Enterprise Security</h3>
+        <p>End-to-end encryption, SOC 2 compliance, role-based access control, and real-time threat monitoring.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon"><i class="fas fa-users"></i></div>
+        <h3>Team Collaboration</h3>
+        <p>Real-time co-editing, shared workspaces, granular permissions, and built-in communication channels.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Growth Analytics</h3>
+        <p>Track KPIs, conversion funnels, user behavior, and revenue metrics with beautiful, shareable dashboards.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="testimonials">
+    <div class="section-header fade-in">
+      <span class="section-label">Testimonials</span>
+      <h2>Trusted by Industry Leaders</h2>
+      <p>See what our customers are saying about their experience with NovaTech.</p>
+    </div>
+
+    <input type="radio" name="slide" id="slide-1" class="carousel-input" checked />
+    <input type="radio" name="slide" id="slide-2" class="carousel-input" />
+    <input type="radio" name="slide" id="slide-3" class="carousel-input" />
+
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "NovaTech completely transformed our data infrastructure. We cut costs by 40% while doubling our processing speed. The AI analytics alone have been worth the investment."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SK</div>
+              <div class="testimonial-info">
+                <h4>Sarah Kim</h4>
+                <p>CTO, CloudScale Inc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "The automation workflows saved our team over 20 hours per week. Setup was intuitive and the support team was incredibly responsive. Highly recommend."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MR</div>
+              <div class="testimonial-info">
+                <h4>Marcus Rivera</h4>
+                <p>VP Engineering, DataFlow</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "We evaluated a dozen platforms before choosing NovaTech. The security compliance, scalability, and developer experience are unmatched in the market."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JL</div>
+              <div class="testimonial-info">
+                <h4>Jennifer Liu</h4>
+                <p>Director of Ops, SecureBase</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <label for="slide-1" class="carousel-label" aria-label="Go to slide 1"></label>
+      <label for="slide-2" class="carousel-label" aria-label="Go to slide 2"></label>
+      <label for="slide-3" class="carousel-label" aria-label="Go to slide 3"></label>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing">
+    <div class="section-header fade-in">
+      <span class="section-label">Pricing</span>
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Choose the plan that fits your needs. No hidden fees, cancel anytime.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in fade-in-delay-1">
+        <h3>Starter</h3>
+        <p class="subtitle">For small teams getting started</p>
+        <div class="pricing-price">$29 <span>/mo</span></div>
+        <p class="pricing-duration">Billed monthly</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 5 team members</li>
+          <li><i class="fas fa-check"></i> 10 GB cloud storage</li>
+          <li><i class="fas fa-check"></i> Basic analytics dashboard</li>
+          <li><i class="fas fa-check"></i> Email support</li>
+          <li><i class="fas fa-check"></i> 3 automation workflows</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured fade-in fade-in-delay-2">
+        <div class="pricing-badge">Most Popular</div>
+        <h3>Professional</h3>
+        <p class="subtitle">For growing businesses</p>
+        <div class="pricing-price">$79 <span>/mo</span></div>
+        <p class="pricing-duration">Billed monthly</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 25 team members</li>
+          <li><i class="fas fa-check"></i> 100 GB cloud storage</li>
+          <li><i class="fas fa-check"></i> Advanced AI analytics</li>
+          <li><i class="fas fa-check"></i> Priority support</li>
+          <li><i class="fas fa-check"></i> Unlimited automation workflows</li>
+          <li><i class="fas fa-check"></i> API access</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <div class="pricing-card fade-in fade-in-delay-3">
+        <h3>Enterprise</h3>
+        <p class="subtitle">For large organizations</p>
+        <div class="pricing-price">$199 <span>/mo</span></div>
+        <p class="pricing-duration">Billed monthly</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Unlimited team members</li>
+          <li><i class="fas fa-check"></i> 1 TB cloud storage</li>
+          <li><i class="fas fa-check"></i> Custom AI models</li>
+          <li><i class="fas fa-check"></i> Dedicated account manager</li>
+          <li><i class="fas fa-check"></i> Custom integrations</li>
+          <li><i class="fas fa-check"></i> SLA guarantee</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <div class="section-header fade-in">
+      <span class="section-label">Contact</span>
+      <h2>Get in Touch</h2>
+      <p>Have questions? We'd love to hear from you. Send us a message and we'll respond promptly.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in fade-in-delay-1">
+        <h3>Let's Build Something Great Together</h3>
+        <p>Reach out to our team for demos, enterprise pricing, or general inquiries. We typically respond within 24 hours.</p>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>hello@novatech.com</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>+1 (555) 123-4567</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-location-dot"></i>
+          <div>
+            <h4>Office</h4>
+            <p>123 Innovation Drive, San Francisco, CA 94105</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form fade-in fade-in-delay-2" onsubmit="event.preventDefault(); alert('Thanks for reaching out! We\'ll get back to you soon.');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="">Select a subject...</option>
+            <option value="general">General Inquiry</option>
+            <option value="sales">Sales &amp; Pricing</option>
+            <option value="support">Technical Support</option>
+            <option value="partnership">Partnerships</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Send Message <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+          NovaTech
+        </a>
+        <p>Next-generation business solutions powered by AI. Empowering teams worldwide to achieve more with intelligent automation and analytics.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NovaTech. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    const toggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = toggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const icon = toggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
+  </script>
+</body>
+</html>
