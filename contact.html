@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexus — IT Networking & AWS Cloud Solutions</title>
+  <title>Contact Us | Nexus</title>
   <meta name="description" content="Nexus is a group of IT networking students specializing in AWS cloud infrastructure and threat analysis. with AI-powered analytics, cloud infrastructure, and enterprise automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,66 +36,72 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
+    <!-- ===== CONTACT HERO ===== -->
+  <section class="hero" id="hero" style="background: linear-gradient(rgba(10, 10, 15, 0.8), rgba(10, 10, 15, 0.9)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200') center/cover; min-height: 40vh; padding: 140px 24px 60px;">
     <div class="hero-content">
-      <div class="hero-badge fade-in">
-        <i class="fas fa-server"></i> IT Networking Enthusiasts
-      </div>
-      <h1 class="fade-in fade-in-delay-1">
-        Pioneering the Cloud with <span class="highlight">AWS</span> Solutions
-      </h1>
-      <p class="fade-in fade-in-delay-2">
-        We are Nexus, a group of dedicated IT networking students exploring the frontiers of cloud technologies and network security, with a strong focus on Amazon Web Services.
+      <h1 class="fade-in fade-in-delay-1">Get in <span class="highlight">Touch</span></h1>
+      <p class="fade-in fade-in-delay-2" style="max-width: 700px; margin: 0 auto;">
+        Whether you want to discuss AWS Cloud Solutions, Threat Analysis, or just talk networking, our team is here for you.
       </p>
-      <div class="hero-buttons fade-in fade-in-delay-3">
-        <a href="#project" class="btn btn-primary">
-          View Our Project <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="about.html" class="btn btn-secondary">
-          Meet the Team <i class="fas fa-chevron-right"></i>
-        </a>
-      </div>
-      <div class="hero-stats fade-in fade-in-delay-4">
-        <div class="hero-stat">
-          <h3>10K+</h3>
-          <p>Active Users</p>
-        </div>
-        <div class="hero-stat">
-          <h3>99.9%</h3>
-          <p>Uptime SLA</p>
-        </div>
-        <div class="hero-stat">
-          <h3>4.9★</h3>
-          <p>Avg. Rating</p>
-        </div>
-      </div>
     </div>
   </section>
 
-    <!-- ===== PROJECT ===== -->
-  <section id="project" style="background: linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.9)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200') center/cover; padding: 120px 24px;">
-    <div class="section-header fade-in">
-      <span class="section-label" style="background: var(--bg-card); color: var(--accent);">Featured Project</span>
-      <h2>AWS Threat Analysis & Logging Tool</h2>
-      <p style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">A robust solution designed for small businesses to monitor and secure their software.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card fade-in fade-in-delay-1" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-        <h3>Real-time Threat Detection</h3>
-        <p>Continuous monitoring of software environments to identify and flag potential security vulnerabilities before they become critical.</p>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <div class="contact-grid">
+      <div class="contact-info fade-in fade-in-delay-1">
+        <h3>Reach out to Nexus</h3>
+        <p>Available Mon-Fri. We typically respond within 24 hours.</p>
+        <div class="contact-detail">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>0203011609</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>contact@nexus-ttu.edu</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-location-dot"></i>
+          <div>
+            <h4>Office</h4>
+            <p>Takoradi, near TTU (Takoradi Technical University)</p>
+          </div>
+        </div>
       </div>
-      <div class="feature-card fade-in fade-in-delay-2" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-server"></i></div>
-        <h3>AWS Hosted</h3>
-        <p>Leveraging the power and reliability of Amazon Web Services to ensure high availability, scalability, and secure data storage.</p>
-      </div>
-      <div class="feature-card fade-in fade-in-delay-3" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
-        <h3>Comprehensive Logging</h3>
-        <p>Detailed activity logs and intuitive dashboards allow small businesses to understand their network traffic and software health at a glance.</p>
-      </div>
+      <form class="contact-form fade-in fade-in-delay-2" onsubmit="event.preventDefault(); alert('Thanks for reaching out! We\'ll get back to you soon.');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Kwame Atta" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="atta@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="">Select a subject...</option>
+            <option value="general">General Inquiry</option>
+            <option value="project">Threat Analysis Project</option>
+            <option value="partnership">Networking & AWS</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Send Message <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
   </section>
 

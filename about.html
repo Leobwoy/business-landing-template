@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexus — IT Networking & AWS Cloud Solutions</title>
+  <title>About Us | Nexus</title>
   <meta name="description" content="Nexus is a group of IT networking students specializing in AWS cloud infrastructure and threat analysis. with AI-powered analytics, cloud infrastructure, and enterprise automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,65 +36,136 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
+    <!-- ===== ABOUT HERO ===== -->
+  <section class="hero" id="hero" style="background: linear-gradient(rgba(10, 10, 15, 0.8), rgba(10, 10, 15, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200') center/cover; min-height: 50vh; padding: 160px 24px 60px;">
     <div class="hero-content">
-      <div class="hero-badge fade-in">
-        <i class="fas fa-server"></i> IT Networking Enthusiasts
-      </div>
-      <h1 class="fade-in fade-in-delay-1">
-        Pioneering the Cloud with <span class="highlight">AWS</span> Solutions
-      </h1>
-      <p class="fade-in fade-in-delay-2">
-        We are Nexus, a group of dedicated IT networking students exploring the frontiers of cloud technologies and network security, with a strong focus on Amazon Web Services.
+      <h1 class="fade-in fade-in-delay-1">Meet the <span class="highlight">Nexus</span> Team</h1>
+      <p class="fade-in fade-in-delay-2" style="max-width: 700px; margin: 0 auto;">
+        We are a passionate group of IT Networking students driven by innovation, exploring the boundless possibilities of Cloud Technologies and Amazon Web Services.
       </p>
-      <div class="hero-buttons fade-in fade-in-delay-3">
-        <a href="#project" class="btn btn-primary">
-          View Our Project <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="about.html" class="btn btn-secondary">
-          Meet the Team <i class="fas fa-chevron-right"></i>
-        </a>
-      </div>
-      <div class="hero-stats fade-in fade-in-delay-4">
-        <div class="hero-stat">
-          <h3>10K+</h3>
-          <p>Active Users</p>
-        </div>
-        <div class="hero-stat">
-          <h3>99.9%</h3>
-          <p>Uptime SLA</p>
-        </div>
-        <div class="hero-stat">
-          <h3>4.9★</h3>
-          <p>Avg. Rating</p>
-        </div>
-      </div>
     </div>
   </section>
 
-    <!-- ===== PROJECT ===== -->
-  <section id="project" style="background: linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.9)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200') center/cover; padding: 120px 24px;">
+  <!-- ===== TEAM ===== -->
+  <section id="team">
     <div class="section-header fade-in">
-      <span class="section-label" style="background: var(--bg-card); color: var(--accent);">Featured Project</span>
-      <h2>AWS Threat Analysis & Logging Tool</h2>
-      <p style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">A robust solution designed for small businesses to monitor and secure their software.</p>
+      <span class="section-label">Our Members</span>
+      <h2>The Faces Behind Nexus</h2>
+      <p>Dedicated to building secure and scalable cloud environments.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card fade-in fade-in-delay-1" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
-        <h3>Real-time Threat Detection</h3>
-        <p>Continuous monitoring of software environments to identify and flag potential security vulnerabilities before they become critical.</p>
+    
+    <style>
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 32px;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+      .team-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        text-align: center;
+        transition: all var(--transition);
+      }
+      .team-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .team-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        background: var(--bg-secondary);
+        border: 2px dashed var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+      .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+      }
+      .team-photo i {
+        font-size: 3rem;
+        color: var(--text-muted);
+      }
+      .team-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+      }
+      .team-card p {
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .team-card .bio {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+    </style>
+
+    <div class="team-grid">
+      <!-- Member 1 -->
+      <div class="team-card fade-in">
+        <div class="team-photo">
+          <i class="fas fa-user"></i>
+          <!-- <img src="your-photo-url-here.jpg" alt="Leonard" /> -->
+        </div>
+        <h3>Leonard</h3>
+        <p>IT Networking Student</p>
+        <p class="bio">Passionate about AWS Architecture and Network Security.</p>
       </div>
-      <div class="feature-card fade-in fade-in-delay-2" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-server"></i></div>
-        <h3>AWS Hosted</h3>
-        <p>Leveraging the power and reliability of Amazon Web Services to ensure high availability, scalability, and secure data storage.</p>
+
+      <!-- Member 2 -->
+      <div class="team-card fade-in fade-in-delay-1">
+        <div class="team-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3>Kelvin</h3>
+        <p>IT Networking Student</p>
+        <p class="bio">Cloud Infrastructure and Server Management Enthusiast.</p>
       </div>
-      <div class="feature-card fade-in fade-in-delay-3" style="background: rgba(26, 26, 38, 0.85); backdrop-filter: blur(10px);">
-        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
-        <h3>Comprehensive Logging</h3>
-        <p>Detailed activity logs and intuitive dashboards allow small businesses to understand their network traffic and software health at a glance.</p>
+
+      <!-- Member 3 -->
+      <div class="team-card fade-in fade-in-delay-2">
+        <div class="team-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3>Francis</h3>
+        <p>IT Networking Student</p>
+        <p class="bio">Specializes in Threat Analysis and Security Protocols.</p>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="team-card fade-in fade-in-delay-3">
+        <div class="team-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3>James</h3>
+        <p>IT Networking Student</p>
+        <p class="bio">Focused on Automation and Cloud Deployments.</p>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="team-card fade-in fade-in-delay-4">
+        <div class="team-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3>Micheal</h3>
+        <p>IT Networking Student</p>
+        <p class="bio">Expert in Data Analysis and AWS Integrations.</p>
       </div>
     </div>
   </section>
