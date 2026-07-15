@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 </head>
 <body>
 
@@ -58,16 +59,82 @@
       </div>
       <div class="hero-stats fade-in fade-in-delay-4">
         <div class="hero-stat">
-          <h3>10K+</h3>
-          <p>Active Users</p>
+          <h3><span class="counter-value" data-target="10000" data-suffix="+">0</span></h3>
+          <p>Logs Analyzed Daily</p>
         </div>
         <div class="hero-stat">
-          <h3>99.9%</h3>
+          <h3><span class="counter-value" data-target="99.9" data-suffix="%">0</span></h3>
           <p>Uptime SLA</p>
         </div>
         <div class="hero-stat">
-          <h3>4.9★</h3>
-          <p>Avg. Rating</p>
+          <h3><span class="counter-value" data-target="24" data-suffix="/7">0</span></h3>
+          <p>Active Monitoring</p>
+        </div>
+      </div>
+      
+      <!-- Live Dashboard Mockup -->
+      <div class="dashboard-mockup reveal">
+        <div class="dash-header">
+          <div class="dash-dot dot-r"></div>
+          <div class="dash-dot dot-y"></div>
+          <div class="dash-dot dot-g"></div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-panel">
+            <h4>Live Server Logs</h4>
+            <div class="log-line"><span class="log-time">[12:45:01]</span> <span class="log-info">INFO</span> <span class="log-msg">User authentication successful (IP: 192.168.1.45)</span></div>
+            <div class="log-line"><span class="log-time">[12:45:03]</span> <span class="log-warn">WARN</span> <span class="log-msg">Multiple failed login attempts detected.</span></div>
+            <div class="log-line"><span class="log-time">[12:45:04]</span> <span class="log-crit">CRIT</span> <span class="log-msg">SQL Injection payload blocked by GuardDuty.</span></div>
+            <div class="log-line"><span class="log-time">[12:45:06]</span> <span class="log-info">INFO</span> <span class="log-msg">CloudWatch metrics updated.</span></div>
+            <div class="log-line"><span class="log-time">[12:45:08]</span> <span class="log-info">INFO</span> <span class="log-msg">VPC Flow logs synced to S3 bucket.</span></div>
+          </div>
+          <div class="dash-panel">
+            <h4>Threats Blocked</h4>
+            <div class="chart-bar-container">
+              <div class="chart-bar" style="height: 40%"></div>
+              <div class="chart-bar" style="height: 60%"></div>
+              <div class="chart-bar" style="height: 30%"></div>
+              <div class="chart-bar" style="height: 80%"></div>
+              <div class="chart-bar" style="height: 50%"></div>
+              <div class="chart-bar" style="height: 90%; background: #ff5f56;"></div>
+              <div class="chart-bar" style="height: 45%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AWS Architecture Diagram -->
+    <div class="aws-architecture reveal">
+      <h3 style="color: white; margin-bottom: 10px; font-size: 1.5rem;">Infrastructure Flow</h3>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fas fa-globe"></i>
+          <span>External Traffic</span>
+        </div>
+      </div>
+      <div class="arch-line"></div>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fab fa-aws"></i>
+          <span>AWS WAF</span>
+        </div>
+        <div class="arch-line-horizontal"></div>
+        <div class="arch-node">
+          <i class="fas fa-shield-alt"></i>
+          <span>GuardDuty</span>
+        </div>
+      </div>
+      <div class="arch-line"></div>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fas fa-server"></i>
+          <span>EC2 Instances</span>
+        </div>
+        <div class="arch-line-horizontal"></div>
+        <div class="arch-node">
+          <i class="fas fa-database"></i>
+          <span>S3 Logs</span>
         </div>
       </div>
     </div>
@@ -95,6 +162,41 @@
         <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
         <h3>Comprehensive Logging</h3>
         <p>Detailed activity logs and intuitive dashboards allow small businesses to understand their network traffic and software health at a glance.</p>
+      </div>
+    </div>
+    
+    <!-- AWS Architecture Diagram -->
+    <div class="aws-architecture reveal">
+      <h3 style="color: white; margin-bottom: 10px; font-size: 1.5rem;">Infrastructure Flow</h3>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fas fa-globe"></i>
+          <span>External Traffic</span>
+        </div>
+      </div>
+      <div class="arch-line"></div>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fab fa-aws"></i>
+          <span>AWS WAF</span>
+        </div>
+        <div class="arch-line-horizontal"></div>
+        <div class="arch-node">
+          <i class="fas fa-shield-alt"></i>
+          <span>GuardDuty</span>
+        </div>
+      </div>
+      <div class="arch-line"></div>
+      <div class="arch-row">
+        <div class="arch-node">
+          <i class="fas fa-server"></i>
+          <span>EC2 Instances</span>
+        </div>
+        <div class="arch-line-horizontal"></div>
+        <div class="arch-node">
+          <i class="fas fa-database"></i>
+          <span>S3 Logs</span>
+        </div>
       </div>
     </div>
   </section>
@@ -165,5 +267,6 @@
       });
     });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

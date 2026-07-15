@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 </head>
 <body>
 
@@ -49,7 +50,7 @@
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact">
     <div class="contact-grid">
-      <div class="contact-info fade-in fade-in-delay-1">
+      <div class="contact-info fade-in reveal fade-in-delay-1">
         <h3>Reach out to Nexus</h3>
         <p>Available Mon-Fri. We typically respond within 24 hours.</p>
         <div class="contact-detail">
@@ -74,7 +75,7 @@
           </div>
         </div>
       </div>
-      <form class="contact-form fade-in fade-in-delay-2" onsubmit="event.preventDefault(); alert('Thanks for reaching out! We\'ll get back to you soon.');">
+      <form class="contact-form fade-in fade-in-delay-2" id="contact-form-sim">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Full Name</label>
@@ -102,6 +103,11 @@
           Send Message <i class="fas fa-paper-plane"></i>
         </button>
       </form>
+      <div id="form-success">
+        <i class="fas fa-check-circle"></i>
+        <h3>Message Sent Successfully!</h3>
+        <p>Thank you for reaching out. We will get back to you shortly.</p>
+      </div>
     </div>
   </section>
 
@@ -171,5 +177,6 @@
       });
     });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
